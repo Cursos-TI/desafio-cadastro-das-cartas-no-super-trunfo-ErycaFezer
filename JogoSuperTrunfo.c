@@ -17,7 +17,7 @@ float superpoder1, superpoder2;
 printf("Criaremos sua primeira carta para o jogo de super trunfo! \n");
 
 printf("Escolha uma letra de A-H, esta representara 1 dos 8 Estados: \n" );
-scanf("%c", &estado1);
+scanf("%s", &estado1);
 
 printf("Digite um codigo para sua carta, este devera ser a letra escolhida seguida de um numero de 01-04, por exemplo A02: \n");
 scanf("%s", &codigo1);
@@ -105,15 +105,13 @@ printf("\n");
 superpoder1 = (float)(populacao1 + area1 + pib1 + pontoturistico1 + pibcapita1 + (1 / densidade1));
 superpoder2 = (float)(populacao2 + area2 + pib2 + pontoturistico2 + pibcapita2 + (1 / densidade2));
 
-/*comparacao das cartas*/
-printf("Agora sera exibida a comparacao das cartas, indicando qual ganhou e qual tem o maior super poder! \n");
-printf("Populacao: carta um venceu (%d) \n", populacao1 > populacao2);
-printf("Area: carta um venceu (%d) \n",  area1 > area2);
-printf("PIB: carta um venceu (%d) \n",  pib1 > pib2);
-printf("Pontos Turisticos: carta um venceu (%d) \n",  pontoturistico1 > pontoturistico2);
-printf("Densidade Populacional: carta um venceu (%d) \n",  densidade1 < densidade2);
-printf("PIB per Capita: carta um venceu (%d) \n",  pibcapita1 > pibcapita2);
-printf("Super Poder: carta um venceu (%d) \n",  superpoder1 > superpoder2);
+/*comparacao das cartas usando if e else (atributo PIB)*/
+if (pib1 > pib2){
+    printf("Carta 1 venceu com base no atributo PIB!\n");
+} else{
+    printf("Carta 2 venceu com base no atributo PIB!\n");
+}
+
 
 return 0;
 
