@@ -11,6 +11,7 @@ int pontoturistico1, pontoturistico2;
 float pibcapita1, pibcapita2;
 float densidade1, densidade2;
 float superpoder1, superpoder2;
+int opcao;
 
 /*nessa parte do codigo, criaremos a primeira carta do jogo, usando o printf e o scanf, apenas, o programa ira pegar seus dados para transmitilo eventualmente.*/
 
@@ -105,13 +106,67 @@ printf("\n");
 superpoder1 = (float)(populacao1 + area1 + pib1 + pontoturistico1 + pibcapita1 + (1 / densidade1));
 superpoder2 = (float)(populacao2 + area2 + pib2 + pontoturistico2 + pibcapita2 + (1 / densidade2));
 
-/*comparacao das cartas usando if e else (atributo PIB)*/
-if (pib1 > pib2){
-    printf("Carta 1 venceu com base no atributo PIB!\n");
-} else{
-    printf("Carta 2 venceu com base no atributo PIB!\n");
-}
+/*escolha do atributo que se deseja comparar*/
+printf("Chegamos na parte mais divertida e tensa! Escolha qual atributo voce deseja comparar para decidir o vencedor!\n");
+printf("1. Populacao\n");
+printf("2. Area\n");
+printf("3. PIB\n");
+printf("4. Numeros de Pontos Turisticos\n");
+printf("5. Densidade Demografica\n");
+scanf("%d", &opcao);
 
+/*comparacao da carta de acordo com o atributo escolhido usando switch e if-else*/
+switch (opcao)
+{
+case 1:
+    if (populacao1 > populacao2){
+        printf("A carta 1 ganhou no atributo Populacao!");
+    } else if(populacao1 == populacao2){
+        printf("Empate!");
+    } else{
+        printf("A carta 2 ganhou no atributo Populacao!");
+    }
+    break;
+case 2:
+    if (area1 > area2){
+        printf("A carta 1 ganhou no atributo Area!");
+    } else if(area1 == area2){
+        printf("Empate!");
+    } else{
+        printf("A carta 2 ganhou no atributo Area!");
+    }
+    break;
+case 3:
+    if (pib1 > pib2){
+        printf("A carta 1 ganhou no atributo PIB!");
+    } else if(pib1 == pib2){
+        printf("Empate!");
+    } else{
+        printf("A carta 2 ganhou no atributo PIB!");
+    }
+    break;
+case 4:
+    if (pontoturistico1 > pontoturistico2){
+        printf("A carta 1 ganhou no atributo Numero de Pontos Turisticos!");
+    } else if(pontoturistico1 == pontoturistico2){
+        printf("Empate!");
+    }else{
+        printf("A carta 2 ganhou no atributo Numero de Pontos Turisticos!");
+    }
+    break;
+case 5:
+    if (densidade1 > densidade2){
+        printf("A carta 2 ganhou no atributo Densidade Demografica!");
+    } else if(densidade1 == densidade2){
+        printf("Empate!");
+    } else{
+        printf("A carta 1 ganhou no atributo Densidade Demografica!");
+    }
+    break;
+default:
+    printf("Escolha invalida!");
+    break;
+}
 
 
 return 0;
